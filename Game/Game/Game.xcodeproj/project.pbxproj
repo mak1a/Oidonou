@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C1778991CE0AA7C00BB8AD0 /* Main.cpp */; };
+		20C6B45A235A128A00D33EB9 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C1778991CE0AA7C00BB8AD0 /* Main.cpp */; };
 		2C1778A31CE0B65500BB8AD0 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2C1778A21CE0B65500BB8AD0 /* icon.icns */; };
 		2C34116722D8ACA4002ADA30 /* libogg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C34116622D8ACA4002ADA30 /* libogg.a */; };
 		2C34116B22D8ACAF002ADA30 /* libvorbisenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C34116822D8ACAF002ADA30 /* libvorbisenc.a */; };
@@ -246,9 +246,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20C6B45A235A128A00D33EB9 /* Main.cpp in Sources */,
 				2C42E02C23487AA800688CB1 /* Title.cpp in Sources */,
 				2C42E02B23487AA800688CB1 /* Game.cpp in Sources */,
-				2C17789A1CE0AA7C00BB8AD0 /* Main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

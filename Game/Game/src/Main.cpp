@@ -30,12 +30,14 @@ void Main()
 	FontAsset::Register(U"Title", 120, U"example/font/AnnyantRoman/AnnyantRoman.ttf");
 	FontAsset::Register(U"Menu", 30, Typeface::Regular);
 	FontAsset::Register(U"Score", 36, Typeface::Bold);
+    FontAsset::Register(U"CountDown", 72, Typeface::Bold);
     
     // 使用するテクスチャアセットを登録
     TextureAsset::Register(U"Schoolkun", U"textures/daigaku_toudai.png");
     TextureAsset::Register(U"ManSchool", U"textures/daigakusei_man.png");
     TextureAsset::Register(U"WomanSchool", U"textures/daigakusei_woman.png");
     TextureAsset::Register(U"Donou", U"textures/donou.png");
+    TextureAsset::Register(U"River", U"textures/kawa.png");
 
 	// シーンと遷移時の色を設定
 	MyApp manager;
