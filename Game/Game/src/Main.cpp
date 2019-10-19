@@ -34,6 +34,7 @@ void Main()
     FontAsset::Register(U"CountDown", 72, Typeface::Bold);
     FontAsset::Register(U"GameTime", 40, Typeface::Light);
     FontAsset::Register(U"Result", 50, Typeface::Bold);
+    FontAsset::Register(U"ResultMonku", 100, Typeface::Bold);
     
     // フォントプリロード
     PreloadAscii(FontAsset(U"Title"));
@@ -42,6 +43,7 @@ void Main()
     PreloadAscii(FontAsset(U"CountDown"));
     PreloadAscii(FontAsset(U"GameTime"));
     PreloadAscii(FontAsset(U"Result"));
+    Preload(FontAsset(U"ResultMonku"), U"夜は土のう無かったのに何であるんですか！？！？え！？何で土のう置いてないの？？？");
     
     // 使用するテクスチャアセットを登録
     TextureAsset::Register(U"Schoolkun", U"textures/daigaku_toudai.png");

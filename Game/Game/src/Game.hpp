@@ -48,7 +48,7 @@ private:
     
     Array<Vec2> m_putDonous;
     
-    const int32 gameTimeMillisec = 20 * 1000;
+    const int32 gameTimeMillisec = 12 * 1000;
     
     int32 m_score = 0;
     

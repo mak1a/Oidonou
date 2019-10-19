@@ -25,4 +25,13 @@ void Result::draw() const {
     
     FontAsset(U"Result")(U"スコア").draw(Scene::CenterF().x - 100, Scene::Height() * 0.4 - resultHeight / 2, Palette::Black);
     FontAsset(U"Result")(U":", getData().highScore).draw(Scene::CenterF().x + 200, Scene::Height() * 0.4 - resultHeight / 2, Palette::Black);
+    
+    if (getData().highScore <= 0) {
+        FontAsset(U"ResultMonku")(U"え！？何で土のう").draw(Scene::CenterF().x - 450, Scene::Height() * 0.3 + resultHeight * 1.5, Palette::Red);
+        FontAsset(U"ResultMonku")(U"置いてないの？？？").draw(Scene::CenterF().x - 450, Scene::Height() * 0.3 + resultHeight * 3.5, Palette::Red);
+        return;
+    }
+    
+    FontAsset(U"ResultMonku")(U"夜は土のう無かったのに").draw(Scene::CenterF().x - 550, Scene::Height() * 0.3 + resultHeight * 1.5, Palette::Red);
+    FontAsset(U"ResultMonku")(U"何であるんですか！？！？").draw(Scene::CenterF().x - 450, Scene::Height() * 0.3 + resultHeight * 3.5, Palette::Red);
 }

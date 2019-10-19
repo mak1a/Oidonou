@@ -158,7 +158,7 @@ void Game::draw() const {
     }
     
     const int32 timeLeftMillisec = Max(gameTimeMillisec - m_gameTimer.ms(), 0);
-    FontAsset(U"GameTime")(U"残り: {:0>2}'{:0>2} 時間"_fmt(timeLeftMillisec / 1000, timeLeftMillisec % 1000 / 10)).draw(60, 60, Palette::Black);
+    FontAsset(U"GameTime")(U"生徒が来るまで: {:0>2}'{:0>2} 時間"_fmt(timeLeftMillisec / 1000, timeLeftMillisec % 1000 / 10)).draw(60, 60, Palette::Black);
     
     FontAsset(U"GameTime")(U"スコア: {0}"_fmt(m_score)).draw(800, 60, Palette::Black);
 }
