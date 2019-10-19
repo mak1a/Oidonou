@@ -1,20 +1,16 @@
 
 # include "Game.hpp"
 
+Human::Human(const Vec2 &initPos)
+    : Triangle(initPos, initPos.movedBy(-450, 50), initPos.movedBy(-450, -50)) {}
+
+
 Game::Game(const InitData& init)
 	: IScene(init)
     , m_chargeDonou(Arg::center(50.f, Scene::CenterF().movedBy(0, 120).y), Vec2(200.f, 500.f))
     , m_putDonou(Arg::center(1230.f, Scene::CenterF().movedBy(0, 120).y), Vec2(300.f, 500.f)) {
         m_countDown.start();
-        
-        //m_donous.emplace(Scene::CenterF(), 100, 200);
-        
-        // 女性と男性のロード
-        Vec2 initPos(1400.f, Scene::CenterF().y + Random(-100.f, 200.f));
-        for (auto i : step(15)) {
-            m_women.emplace_back(initPos, initPos.movedBy(-100, 50), initPos.movedBy(-100, -50));
-            m_men.emplace_back(initPos, initPos.movedBy(-100, 50), initPos.movedBy(-100, -50));
-        }
+         
 }
 
 void Game::update() {
@@ -31,15 +27,21 @@ void Game::update() {
     }
     
     // 人間の生成
-    if (m_createMan >= 1000ms) {
+    if (m_createMan >= 800ms) {
         m_createMan.restart();
-        Vec2 initPos(1400.f, Scene::CenterF().y + Random(-100.f, 200.f));
-        m_men.emplace_back(initPos, initPos.movedBy(-100, 50), initPos.movedBy(-100, -50));
+        Vec2 initPos(1000.f, Scene::CenterF().y + Random(-100.f, 200.f));
+        m_men.emplace_back(initPos);
     }
     if (m_createWoman >= 1000ms) {
         m_createWoman.restart();
-        Vec2 initPos(1400.f, Scene::CenterF().y + Random(-100.f, 200.f));
-        m_women.emplace_back(initPos, initPos.movedBy(-100, 50), initPos.movedBy(-100, -50));
+        Vec2 initPos(1000.f, Scene::CenterF().y + Random(-100.f, 200.f));
+        m_women.emplace_back(initPos);
+    }
+    for (auto &man : m_men) {
+        man.moveBy(-5.f, man.getYDir());
+    }
+    for (auto &woman : m_women) {
+        woman.moveBy(-5.f, woman.getYDir());
     }
     
     // 土嚢の動き
@@ -53,7 +55,21 @@ void Game::update() {
     
     m_donou.value().setCenter(Cursor::PosF());
     
+    for (auto &man : m_men) {
+        if (man.intersects(m_donou.value())) {
+            man.changeStateAngry();
+        }
+    }
+    for (auto &woman : m_women) {
+        if (woman.intersects(m_donou.value())) {
+            woman.changeStateAngry();
+        }
+    }
+    
     if (m_putDonou.leftClicked()) {
+        m_putDonous.emplace_back(Cursor::PosF());
+        
+        int32 score = m_scoreSphere.distanceFrom(Cursor::PosF()) * 50;
         m_donou.reset();
     }
 }
@@ -89,8 +105,28 @@ void Game::draw() const {
     
     m_chargeDonou.draw(ColorF(Palette::Red, 0.5f));
     
-    //TextureAsset(U"ManSchool").resized(m_man.size).drawAt(m_man.center());
-    //TextureAsset(U"WomanSchool").resized(m_woman.size).drawAt(m_woman.center());
+    for (auto &donouPos : m_putDonous) {
+        TextureAsset(U"Donou").resized(50, 100).drawAt(donouPos);
+    }
+    
+    for (auto &man : m_men) {
+        man.draw(ColorF(Palette::Red, 0.5f));
+        if (!man.isAngry()) {
+            TextureAsset(U"ManSchool").resized(100, 200).drawAt(man.p0);
+        }
+        else {
+            TextureAsset(U"ManIkari").resized(100, 200).drawAt(man.p0);
+        }
+    }
+    for (auto &woman : m_women) {
+        woman.draw(ColorF(Palette::Red, 0.5f));
+        if (!woman.isAngry()) {
+            TextureAsset(U"WomanSchool").resized(100, 200).drawAt(woman.p0);
+        }
+        else {
+            TextureAsset(U"WomanIkari").resized(100, 200).drawAt(woman.p0);
+        }
+    }
     
     if (m_donou.has_value()) {
         TextureAsset(U"Donou").resized(m_donou.value().size).drawAt(m_donou.value().center());

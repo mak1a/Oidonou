@@ -44,6 +44,8 @@ void Main()
     TextureAsset::Register(U"WomanSchool", U"textures/daigakusei_woman.png");
     TextureAsset::Register(U"Donou", U"textures/donou.png");
     TextureAsset::Register(U"River", U"textures/kawa.png");
+    TextureAsset::Register(U"ManIkari", U"textures/daigakusei_man_ikari.png");
+    TextureAsset::Register(U"WomanIkari", U"textures/daigakusei_woman_ikari.png");
 
 	// シーンと遷移時の色を設定
 	MyApp manager;
