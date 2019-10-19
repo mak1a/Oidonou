@@ -46,13 +46,13 @@ void Main()
     Preload(FontAsset(U"ResultMonku"), U"夜は土のう無かったのに何であるんですか！？！？え！？何で土のう置いてないの？？？");
     
     // 使用するテクスチャアセットを登録
-    TextureAsset::Register(U"Schoolkun", U"textures/daigaku_toudai.png");
-    TextureAsset::Register(U"ManSchool", U"textures/walking2_man.png");
-    TextureAsset::Register(U"WomanSchool", U"textures/walking5_woman.png");
-    TextureAsset::Register(U"Donou", U"textures/donou.png");
-    TextureAsset::Register(U"River", U"textures/kawa.png");
-    TextureAsset::Register(U"ManIkari", U"textures/walking2_man_ikari.png");
-    TextureAsset::Register(U"WomanIkari", U"textures/walking5_woman_ikari.png");
+    TextureAsset::Register(U"Schoolkun", Resource(U"textures/daigaku_toudai.png"));
+    TextureAsset::Register(U"ManSchool", Resource(U"textures/walking2_man.png"));
+    TextureAsset::Register(U"WomanSchool", Resource(U"textures/walking5_woman.png"));
+    TextureAsset::Register(U"Donou", Resource(U"textures/donou.png"));
+    TextureAsset::Register(U"River", Resource(U"textures/kawa.png"));
+    TextureAsset::Register(U"ManIkari", Resource(U"textures/walking2_man_ikari.png"));
+    TextureAsset::Register(U"WomanIkari", Resource(U"textures/walking5_woman_ikari.png"));
 
 	// シーンと遷移時の色を設定
 	MyApp manager;
