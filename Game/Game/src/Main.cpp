@@ -11,6 +11,7 @@
 # include "Common.hpp"
 # include "Title.hpp"
 # include "Game.hpp"
+#include "Result.hpp"
 
 void Main()
 {
@@ -31,31 +32,36 @@ void Main()
 	FontAsset::Register(U"Menu", 30, Typeface::Regular);
 	FontAsset::Register(U"Score", 36, Typeface::Bold);
     FontAsset::Register(U"CountDown", 72, Typeface::Bold);
+    FontAsset::Register(U"GameTime", 40, Typeface::Light);
+    FontAsset::Register(U"Result", 50, Typeface::Bold);
     
     // フォントプリロード
     PreloadAscii(FontAsset(U"Title"));
     PreloadAscii(FontAsset(U"Menu"));
     PreloadAscii(FontAsset(U"Score"));
     PreloadAscii(FontAsset(U"CountDown"));
+    PreloadAscii(FontAsset(U"GameTime"));
+    PreloadAscii(FontAsset(U"Result"));
     
     // 使用するテクスチャアセットを登録
     TextureAsset::Register(U"Schoolkun", U"textures/daigaku_toudai.png");
-    TextureAsset::Register(U"ManSchool", U"textures/daigakusei_man.png");
-    TextureAsset::Register(U"WomanSchool", U"textures/daigakusei_woman.png");
+    TextureAsset::Register(U"ManSchool", U"textures/walking2_man.png");
+    TextureAsset::Register(U"WomanSchool", U"textures/walking5_woman.png");
     TextureAsset::Register(U"Donou", U"textures/donou.png");
     TextureAsset::Register(U"River", U"textures/kawa.png");
-    TextureAsset::Register(U"ManIkari", U"textures/daigakusei_man_ikari.png");
-    TextureAsset::Register(U"WomanIkari", U"textures/daigakusei_woman_ikari.png");
+    TextureAsset::Register(U"ManIkari", U"textures/walking2_man_ikari.png");
+    TextureAsset::Register(U"WomanIkari", U"textures/walking5_woman_ikari.png");
 
 	// シーンと遷移時の色を設定
 	MyApp manager;
 	manager
 		.add<Title>(State::Title)
 		.add<Game>(State::Game)
+        .add<Result>(State::Result)
 		.setFadeColor(ColorF(1.0));
 
 	// （ゲームシーンから開始する場合はコメントを外す）
-	manager.init(State::Game);
+	//manager.init(State::Game);
 
 	while (System::Update())
 	{

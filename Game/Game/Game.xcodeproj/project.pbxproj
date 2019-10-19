@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20AD1900235B7CAA00B31F97 /* Result.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20AD18FE235B7CAA00B31F97 /* Result.cpp */; };
 		20C6B45A235A128A00D33EB9 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C1778991CE0AA7C00BB8AD0 /* Main.cpp */; };
 		2C1778A31CE0B65500BB8AD0 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2C1778A21CE0B65500BB8AD0 /* icon.icns */; };
 		2C34116722D8ACA4002ADA30 /* libogg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C34116622D8ACA4002ADA30 /* libogg.a */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20AD18FE235B7CAA00B31F97 /* Result.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Result.cpp; sourceTree = "<group>"; };
+		20AD18FF235B7CAA00B31F97 /* Result.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Result.hpp; sourceTree = "<group>"; };
 		2C1778841CE0A9EA00BB8AD0 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C1778921CE0A9EA00BB8AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C1778991CE0AA7C00BB8AD0 /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				2C42E02723487AA800688CB1 /* Title.cpp */,
 				2C42E02623487AA800688CB1 /* Title.hpp */,
 				2C1778991CE0AA7C00BB8AD0 /* Main.cpp */,
+				20AD18FE235B7CAA00B31F97 /* Result.cpp */,
+				20AD18FF235B7CAA00B31F97 /* Result.hpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 			files = (
 				20C6B45A235A128A00D33EB9 /* Main.cpp in Sources */,
 				2C42E02C23487AA800688CB1 /* Title.cpp in Sources */,
+				20AD1900235B7CAA00B31F97 /* Result.cpp in Sources */,
 				2C42E02B23487AA800688CB1 /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

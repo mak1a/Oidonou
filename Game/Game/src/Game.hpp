@@ -48,6 +48,10 @@ private:
     
     Array<Vec2> m_putDonous;
     
+    const int32 gameTimeMillisec = 20 * 1000;
+    
+    int32 m_score = 0;
+    
     bool onCountDown() const {
         return m_countDown.isRunning() && m_countDown < 4000ms;
     }

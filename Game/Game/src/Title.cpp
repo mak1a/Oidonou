@@ -1,4 +1,4 @@
-﻿
+
 # include "Title.hpp"
 
 Title::Title(const InitData& init)
@@ -30,8 +30,13 @@ void Title::update()
 
 void Title::draw() const
 {
-	const String titleText = U"ブロックくずし";
+	const String titleText = U"おいどのうゲーム";
 	const Vec2 center(Scene::Center().x, 120);
+    
+    TextureAsset(U"River").resized(1400, 830).drawAt(Scene::CenterF());
+    
+    TextureAsset(U"Schoolkun").resized(400.f, 300.f).drawAt(Vec2(1230.f, Scene::CenterF().movedBy(0, 120).y).movedBy(-100.f, -100.f));
+    
 	FontAsset(U"Title")(titleText).drawAt(center.movedBy(4, 6), ColorF(0.0, 0.5));
 	FontAsset(U"Title")(titleText).drawAt(center);
 
