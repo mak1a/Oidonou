@@ -90,7 +90,8 @@ void Game::update() {
     if (m_putDonou.leftClicked()) {
         m_putDonous.emplace_back(Cursor::PosF());
         
-        m_score += m_scoreSphere.distanceFrom(Cursor::PosF()) * 50;
+        int32 score = 20000 - m_scoreSphere.distanceFrom(Cursor::PosF()) * 50;
+        m_score += Max(score, 0);
         m_donou.reset();
     }
 }
