@@ -15,6 +15,9 @@ private:
     bool onCountDown() const {
         return m_countDown.isRunning() && m_countDown < 4000ms;
     }
+    bool onGame() const {
+        return m_gameTimer.isRunning();
+    }
 public:
 
 	Game(const InitData& init);

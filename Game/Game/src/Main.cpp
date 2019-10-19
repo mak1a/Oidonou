@@ -32,6 +32,12 @@ void Main()
 	FontAsset::Register(U"Score", 36, Typeface::Bold);
     FontAsset::Register(U"CountDown", 72, Typeface::Bold);
     
+    // フォントプリロード
+    PreloadAscii(FontAsset(U"Title"));
+    PreloadAscii(FontAsset(U"Menu"));
+    PreloadAscii(FontAsset(U"Score"));
+    PreloadAscii(FontAsset(U"CountDown"));
+    
     // 使用するテクスチャアセットを登録
     TextureAsset::Register(U"Schoolkun", U"textures/daigaku_toudai.png");
     TextureAsset::Register(U"ManSchool", U"textures/daigakusei_man.png");
