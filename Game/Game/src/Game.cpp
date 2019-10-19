@@ -3,10 +3,11 @@
 
 Game::Game(const InitData& init)
 	: IScene(init)
-    , m_chargeDonou(Arg::center(50.f, Scene::CenterF().movedBy(0, 120).y), Vec2(200.f, 500.f)){
+    , m_chargeDonou(Arg::center(50.f, Scene::CenterF().movedBy(0, 120).y), Vec2(200.f, 500.f))
+    , m_putDonou(Arg::center(1230.f, Scene::CenterF().movedBy(0, 120).y), Vec2(300.f, 500.f)) {
         m_countDown.start();
         
-        m_donous.emplace(Scene::CenterF(), 100, 200);
+        //m_donous.emplace(Scene::CenterF(), 100, 200);
         
         // 女性と男性のロード
         Vec2 initPos(1400.f, Scene::CenterF().y + Random(-100.f, 200.f));
@@ -20,6 +21,8 @@ void Game::update() {
     // ゲームスタートの処理
     if (!onGame() && m_countDown >= 3000ms) {
         m_gameTimer.start();
+        m_createMan.start();
+        m_createWoman.start();
         m_countDown.reset();
     }
     // ゲームを開始してない場合、早期リターン
@@ -27,7 +30,32 @@ void Game::update() {
         return;
     }
     
-    m_donous.value().setCenter(Cursor::PosF());
+    // 人間の生成
+    if (m_createMan >= 1000ms) {
+        m_createMan.restart();
+        Vec2 initPos(1400.f, Scene::CenterF().y + Random(-100.f, 200.f));
+        m_men.emplace_back(initPos, initPos.movedBy(-100, 50), initPos.movedBy(-100, -50));
+    }
+    if (m_createWoman >= 1000ms) {
+        m_createWoman.restart();
+        Vec2 initPos(1400.f, Scene::CenterF().y + Random(-100.f, 200.f));
+        m_women.emplace_back(initPos, initPos.movedBy(-100, 50), initPos.movedBy(-100, -50));
+    }
+    
+    // 土嚢の動き
+    if (!m_donou.has_value()) {
+        if (m_chargeDonou.leftClicked()) {
+            m_donou.emplace(Arg::center(Cursor::PosF()), 100, 200);
+        }
+        
+        return;
+    }
+    
+    m_donou.value().setCenter(Cursor::PosF());
+    
+    if (m_putDonou.leftClicked()) {
+        m_donou.reset();
+    }
 }
 
 void Game::draw() const {
@@ -56,12 +84,15 @@ void Game::draw() const {
     
     TextureAsset(U"River").resized(1400, 830).drawAt(Scene::CenterF());
     
+    m_putDonou.draw(ColorF(Palette::Yellow, 0.5f));
+    TextureAsset(U"Schoolkun").resized(400.f, 300.f).drawAt(m_putDonou.center().movedBy(-100.f, -100.f));
+    
     m_chargeDonou.draw(ColorF(Palette::Red, 0.5f));
     
-    for (auto &man : m_men) {
-        man.draw(Palette::Black);
-    }
     //TextureAsset(U"ManSchool").resized(m_man.size).drawAt(m_man.center());
     //TextureAsset(U"WomanSchool").resized(m_woman.size).drawAt(m_woman.center());
-    //TextureAsset(U"Donou").resized(m_Donou.value().size).drawAt(m_Donou.value().center());
+    
+    if (m_donou.has_value()) {
+        TextureAsset(U"Donou").resized(m_donou.value().size).drawAt(m_donou.value().center());
+    }
 }
