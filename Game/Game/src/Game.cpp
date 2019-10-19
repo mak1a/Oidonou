@@ -3,10 +3,17 @@
 
 Game::Game(const InitData& init)
 	: IScene(init)
-    , m_man(Scene::CenterF(), 100, 200)
-    , m_woman(Scene::CenterF(), 100, 200)
-    , m_Donou(Scene::CenterF(), 100, 200){
+    , m_chargeDonou(Arg::center(50.f, Scene::CenterF().movedBy(0, 120).y), Vec2(200.f, 500.f)){
         m_countDown.start();
+        
+        m_donous.emplace(Scene::CenterF(), 100, 200);
+        
+        // 女性と男性のロード
+        Vec2 initPos(1400.f, Scene::CenterF().y + Random(-100.f, 200.f));
+        for (auto i : step(15)) {
+            m_women.emplace_back(initPos, initPos.movedBy(-100, 50), initPos.movedBy(-100, -50));
+            m_men.emplace_back(initPos, initPos.movedBy(-100, 50), initPos.movedBy(-100, -50));
+        }
 }
 
 void Game::update() {
@@ -20,7 +27,7 @@ void Game::update() {
         return;
     }
     
-    m_Donou.setCenter(Cursor::PosF());
+    m_donous.value().setCenter(Cursor::PosF());
 }
 
 void Game::draw() const {
@@ -49,7 +56,12 @@ void Game::draw() const {
     
     TextureAsset(U"River").resized(1400, 830).drawAt(Scene::CenterF());
     
-    TextureAsset(U"ManSchool").resized(m_man.size).drawAt(m_man.center());
-    TextureAsset(U"WomanSchool").resized(m_woman.size).drawAt(m_woman.center());
-    TextureAsset(U"Donou").resized(m_Donou.size).drawAt(m_Donou.center());
+    m_chargeDonou.draw(ColorF(Palette::Red, 0.5f));
+    
+    for (auto &man : m_men) {
+        man.draw(Palette::Black);
+    }
+    //TextureAsset(U"ManSchool").resized(m_man.size).drawAt(m_man.center());
+    //TextureAsset(U"WomanSchool").resized(m_woman.size).drawAt(m_woman.center());
+    //TextureAsset(U"Donou").resized(m_Donou.value().size).drawAt(m_Donou.value().center());
 }

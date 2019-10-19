@@ -8,9 +8,11 @@ private:
     Stopwatch m_countDown;
     Stopwatch m_gameTimer;
     
-    RectF m_man;
-    RectF m_woman;
-    RectF m_Donou;
+    Array<Triangle> m_men;
+    Array<Triangle> m_women;
+    std::optional<RectF> m_donous;
+    
+    RectF m_chargeDonou;
     
     bool onCountDown() const {
         return m_countDown.isRunning() && m_countDown < 4000ms;
