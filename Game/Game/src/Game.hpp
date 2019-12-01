@@ -40,7 +40,7 @@ private:
     
     Array<Human> m_men;
     Array<Human> m_women;
-    std::optional<RectF> m_donou;
+    Optional<RectF> m_donou;
     
     RectF m_chargeDonou;
     RectF m_putDonou;
@@ -48,7 +48,7 @@ private:
     
     Array<Vec2> m_putDonous;
     
-    const int32 gameTimeMillisec = 12 * 1000;
+    const int32 gameTimeMillisec = 20 * 1000;
     
     int32 m_score = 0;
     

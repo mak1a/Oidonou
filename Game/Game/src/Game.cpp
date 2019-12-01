@@ -57,7 +57,7 @@ void Game::update () {
 
 		if (man.intersects (m_donou.value ())) {
 			man.changeStateAngry ();
-			m_score -= Random<int32> (2500, 5000);
+			m_score -= Random(2500, 5000);
 			m_donou.reset ();
 		}
 	}
@@ -70,7 +70,7 @@ void Game::update () {
 
 		if (woman.intersects (m_donou.value ())) {
 			woman.changeStateAngry ();
-			m_score -= Random<int32> (2500, 5000);;
+			m_score -= Random(2500, 5000);;
 			m_donou.reset ();
 		}
 	}

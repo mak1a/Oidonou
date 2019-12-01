@@ -11,7 +11,7 @@ Result::Result (const InitData& init)
 	: IScene (init) {
 	for (auto i : step (30)) {
 		m_balloons.emplace_back (Texture (CreateBalloon (12 * i)));
-		m_balloonsPos.emplace_back (Random (0.8s, 1.5s));
+		m_balloonsPos.emplace_back (SecondsF(Random (0.8, 1.5)));
 		m_posXs.emplace_back (Random (0, Scene::Size ().x));
 		m_posYs.emplace_back (750, Random (1.0, 4.0));
 	}
@@ -34,8 +34,8 @@ void Result::draw () const {
 	TextureAsset (U"Schoolkun").resized (400.f, 300.f).drawAt (Vec2 (1230.f, Scene::CenterF ().movedBy (0, 120).y).movedBy (-100.f, -100.f));
 
 	for (size_t i = 0; i < m_balloons.size (); ++i) {
-		m_balloons[i].draw (m_posXs[i] + 20 * Periodic::Tringle0_1 (m_balloonsPos[i]), m_posYs[i].x);
-		TextureAsset (U"Donou").resized (100, 100).draw (m_posXs[i] + 20 * Periodic::Tringle0_1 (m_balloonsPos[i]) - 50, m_posYs[i].x + 100);
+		m_balloons[i].draw (m_posXs[i] + 20 * Periodic::Triangle0_1 (m_balloonsPos[i]), m_posYs[i].x);
+		TextureAsset (U"Donou").resized (100, 100).draw (m_posXs[i] + 20 * Periodic::Triangle0_1 (m_balloonsPos[i]) - 50, m_posYs[i].x + 100);
 	}
 
 	const double resultHeight = FontAsset (U"Result")(U"スコア：", getData ().highScore).region ().h;

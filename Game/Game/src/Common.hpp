@@ -1,7 +1,6 @@
 
 # pragma once
 # include <Siv3D.hpp> // OpenSiv3D v0.4.1
-#include<optional>
 
 // シーンの名前
 enum class State {
