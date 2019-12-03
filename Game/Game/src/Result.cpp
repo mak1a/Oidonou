@@ -1,10 +1,3 @@
-//
-//  Result.cpp
-//  Game
-//
-//  Created by 山口隼矢 on 2019/10/20.
-//
-
 #include "Result.hpp"
 
 Result::Result (const InitData& init)
