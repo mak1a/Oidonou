@@ -64,7 +64,7 @@ void Main()
 
 	// （ゲームシーンから開始する場合はコメントを外す）
 	//manager.init(State::Game);
-
+    
 	while (System::Update())
 	{
 		if (!manager.update())

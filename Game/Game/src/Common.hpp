@@ -1,6 +1,6 @@
 
 # pragma once
-# include <Siv3D.hpp> // OpenSiv3D v0.4.1
+# include <Siv3D.hpp> // OpenSiv3D v0.4.2
 
 // シーンの名前
 enum class State {
@@ -65,7 +65,7 @@ namespace {
 
     /// <summary>
     /// 風船を指定した色で返す
-    /// v0.4.1bでは動くことを確認
+    /// v0.4.2では動くことを確認
     /// </summary>
     /// <param name="color">風船の表面の色</param>
     /// <returns>風船のImage</returns>

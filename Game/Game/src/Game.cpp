@@ -84,7 +84,7 @@ void Game::update () {
 		return;
 	}
 
-	m_donou.value ().setCenter (Cursor::PosF ());
+	m_donou.value ().setCenter (Cursor::PosF().x, Clamp(Cursor::PosF().y, 250.0, 650.0));
 
 	if (m_putDonou.leftClicked ()) {
 		m_putDonous.emplace_back (Cursor::PosF ());
