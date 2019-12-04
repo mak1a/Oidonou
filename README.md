@@ -2,8 +2,7 @@
 
 ## 制作者
 
-    mak1a
-    twitter: <https://twitter.com/mak1a_ctrl/> 
+[mak1a](https://twitter.com/mak1a_ctrl/)
 
 ## 使用エンジン
 
@@ -26,4 +25,7 @@
 ## macでゲームをプレイする方へ
 
     導入時に、Game.appをApplicationsに入れた後に xattr -rc /Applications/Game.app をターミナルに打ち込まないと開けません。
-    まだまだ未熟者ですのでバグ等あると思います。もしよろしければ、 <https://twitter.com/mak1a_ctrl/> までご連絡いただけると助かります。
+
+## その他
+
+まだまだ未熟者ですのでバグ等あると思います。もしよろしければ、 [mak1a](https://twitter.com/mak1a_ctrl/) までご連絡いただけると助かります。
