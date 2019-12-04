@@ -28,4 +28,4 @@
     導入時に、Game.appをApplicationsに入れた後に xattr -rc /Applications/Game.app をターミナルに打ち込まないと開けません。
     まだまだ未熟者ですのでバグ等あると思います。もしよろしければ、[mak1a][twitter]までご連絡いただけると助かります。
 
-[twitter]: https://twitter.com/mak1a_ctrl/
+[twitter]: https://twitter.com/mak1a_ctrl/ "Twitter"
