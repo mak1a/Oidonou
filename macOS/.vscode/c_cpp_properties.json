@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                ".",
+                "/usr/local/OpenSiv3Dv0_4_3/include",
+                "/usr/local/OpenSiv3Dv0_4_3/include/HamFramework",
+                "/usr/local/OpenSiv3Dv0_4_3/include/Siv3D",
+                "/usr/local/OpenSiv3Dv0_4_3/include/ThirdParty"
+            ],
+            "defines": [],
+            "macFrameworkPath": [],
+            "compilerPath": "/usr/local/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
