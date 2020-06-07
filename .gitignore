@@ -385,8 +385,9 @@ siv3d.a
 *.exe
 *.html
 *.jppmdl
+*.app
+*.app.dSYM
 Screenshot/
 AS_DEBUG/
 
-include/
-lib/
+build/
