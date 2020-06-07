@@ -5,10 +5,10 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 ".",
-                "../../include",
-                "../../include/HamFramework",
-                "../../include/Siv3D",
-                "../../include/ThirdParty"
+                "/usr/local/OpenSiv3Dv0_4_3/include",
+                "/usr/local/OpenSiv3Dv0_4_3/include/HamFramework",
+                "/usr/local/OpenSiv3Dv0_4_3/include/Siv3D",
+                "/usr/local/OpenSiv3Dv0_4_3/include/ThirdParty"
             ],
             "defines": [],
             "macFrameworkPath": [],
